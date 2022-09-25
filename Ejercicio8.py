@@ -1,4 +1,13 @@
 from tkinter import *
+from tkinter import messagebox
+def ValidarNum():
+     n1 = float(num1.get())
+     n2 = float(num2.get())
+     if(n2>0):
+          rest.set(n1 / n2)
+     else:
+          messagebox.showinfo(message="No es posible dividir por cero", title="Error")
+
 
 def Operacion():
     n1 = int(num1.get())
@@ -11,7 +20,7 @@ def Operacion():
     if op == 3:#Multiplicacion
         rest.set(n1 * n2)
     if op == 4:#Divicion
-        rest.set(n1 / n2)
+        ValidarNum()
 
 
 Ventana=Tk()
