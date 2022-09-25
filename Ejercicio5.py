@@ -1,4 +1,5 @@
-from tkinter import * 
+from tkinter import *
+from tkinter import messagebox 
 
 def Sumar():
     Dato = int(E1.get()) + int(E2.get())
@@ -15,11 +16,15 @@ def Multiplicacion():
     E3.delete(0,END)
     E3.insert(0,Dato) 
 
-def Divicion():
-    Dato = int(E1.get()) / int(E2.get())
-    Dato = float(Dato)
-    E3.delete(0,END)
-    E3.insert(0,Dato) 
+# def Divicion():
+def Division():
+     if(int(E2.get())>0):
+          Dato = int(E1.get()) / int(E2.get())
+          Dato = float(Dato)
+          E3.insert(0,Dato)
+     else:
+          messagebox.showinfo(message="No es posible dividir por cero", title="Error")
+           
 
 def Porcentaje():
     Dato = int(E1.get()) * int(E2.get()) / 100
@@ -27,8 +32,8 @@ def Porcentaje():
     E3.delete(0,END)
     E3.insert(0,Dato)
 
-def Canselar():
-    
+# def Canselar():
+def Cancelar():    
     E1.delete(0,END)
     E1.insert(0,0)
     
@@ -71,13 +76,13 @@ B2.place(x = 160, y = 130)
 B3 = Button(Ventana, text = "            *             ", command = Multiplicacion, bg="Yellow")
 B3.place(x = 40, y = 170)
 
-B4 = Button(Ventana, text = "            /            ", command = Divicion, bg="Yellow")
+B4 = Button(Ventana, text = "            /            ", command = Division, bg="Yellow")
 B4.place(x = 160, y = 170)
 
 B5 = Button(Ventana, text = "            %            ", command = Porcentaje, bg="Yellow")
 B5.place(x = 40, y = 210)
 
-B6 = Button(Ventana, text = "        CLEAR       ", command = Canselar, bg="Red")
+B6 = Button(Ventana, text = "        CLEAR       ", command = Cancelar, bg="Red")
 B6.place(x = 160, y = 210)
 
 
